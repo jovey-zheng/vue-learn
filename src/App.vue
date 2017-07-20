@@ -1,13 +1,21 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+
+    <div v-for="route in routes">
+      <router-link :to="route">Go to {{ route === '/' ? 'Home' : route }}</router-link>
+    </div>
+
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  data: () => ({
+    routes: ['/', 'counter', 'preview', 'transform']
+  })
 }
 </script>
 
